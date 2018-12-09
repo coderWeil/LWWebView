@@ -11,8 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LWWebView : UIView
-@property (nonatomic,strong,readonly) WKWebView *webView;
+@interface LWWebView : WKWebView
 @property (nonatomic,strong,readonly) WKWebViewJavascriptBridge *bridge;
 @property (nonatomic,copy) void(^fetchWebTitleFromWebView)(NSString *title);
 @property (nonatomic,copy) void(^jumpToAppStore)(void);
