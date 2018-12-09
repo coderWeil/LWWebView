@@ -33,7 +33,14 @@
     }
     return self;
 }
-
+- (instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration {
+    self = [super initWithFrame:frame configuration:configuration];
+    if (self) {
+        [self p_initSubviews];
+        [self p_configBridge];
+    }
+    return self;
+}
 - (void)p_initSubviews {
     self.progressView = [[UIProgressView alloc] init];
     self.progressView.backgroundColor = [UIColor clearColor];
@@ -41,6 +48,8 @@
     [self.progressView setProgress:0.1 animated:NO];
     [self addSubview:self.progressView];
     self.scrollView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
+    [self addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
+    [self addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)lw_setupProgressTrackColor:(UIColor *)color {

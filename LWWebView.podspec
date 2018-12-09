@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LWWebView"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "封装的webview."
  
   s.description  = '一款基于WKWebView和WebViewJavascriptBridge封装的网页'
