@@ -79,7 +79,11 @@
     [self loadHTMLString:html baseURL:baseURL];
 }
 - (void)lw_loadWebViewWithFileURL:(NSURL *)fileURL allowingURL:(NSURL *)allowingURL {
-    [self loadFileURL:fileURL allowingReadAccessToURL:allowingURL];
+    if (@available(iOS 9.0, *)) {
+        [self loadFileURL:fileURL allowingReadAccessToURL:allowingURL];
+    }else {
+        [self loadRequest:[NSURLRequest requestWithURL:fileURL]];
+    }
 }
 - (void)lw_reloadWebView {
     self.scrollView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
