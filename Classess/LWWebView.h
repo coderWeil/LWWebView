@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) void(^fetchWebViewHandlerWithClick)(NSURL *url);
 @property (nonatomic,copy) void(^loadSuccess)(void);
 @property (nonatomic,copy) void(^loadFailure)(NSError *error);
+@property (nonatomic,copy) void(^loadNewURL)(NSString *url);
 
 - (void)lw_setupURLScheme:(NSString *)urlScheme;
 - (void)lw_setupAppLink:(NSString *)appLink;

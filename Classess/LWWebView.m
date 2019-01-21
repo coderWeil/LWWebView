@@ -50,6 +50,7 @@
     self.scrollView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
     [self addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
     [self addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
+    [self addObserver:self forKeyPath:@"URL" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)lw_setupProgressTrackColor:(UIColor *)color {
@@ -119,6 +120,10 @@
         if (self.fetchWebTitleFromWebView) {
             self.fetchWebTitleFromWebView(title);
         }
+    }else if ([keyPath isEqualToString:@"URL"]) {
+        if (self.loadNewURL) {
+            self.loadNewURL(self.URL.absoluteString);
+        }
     }
 }
 
@@ -161,5 +166,6 @@
 - (void)dealloc {
     [self removeObserver:self forKeyPath:@"estimatedProgress"];
     [self removeObserver:self forKeyPath:@"title"];
+     [self removeObserver:self forKeyPath:@"URL"];
 }
 @end
