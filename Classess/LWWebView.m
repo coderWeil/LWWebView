@@ -54,10 +54,10 @@
 }
 
 - (void)lw_setupProgressTrackColor:(UIColor *)color {
-    self.progressView.tintColor = color;
+    self.progressView.progressTintColor = color;
 }
 - (void)lw_setupProgressBackColor:(UIColor *)backColor {
-    self.progressView.backgroundColor = backColor;
+    self.progressView.trackTintColor = backColor;
 }
 - (void)lw_setupAppLink:(NSString *)appLink {
     self.appLink = appLink;
